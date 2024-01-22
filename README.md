@@ -1,3 +1,3 @@
 Timer CountDown
-Home Page:[https://](Here)
-Settings Page: (/settings) 
+Home Page:[https://timer-six-eta.vercel.app](Here)
+Settings Page: [https://timer-six-eta.vercel.app/settings](/settings) 
