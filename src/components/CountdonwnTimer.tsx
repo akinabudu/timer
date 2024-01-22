@@ -18,18 +18,18 @@ const CountdownTimer = ({ CountdownTimestampMs }: any) => {
     }, 1000);
     return () => clearInterval(intervalId);
   }, [CountdownTimestampMs]);
-
+console.log(remaininTime)
   function updateRemainingTime(countdown: any) {
     setRemainingTime(getRemainingTimeUntilMsTimestamps(countdown));
   }
   return (
     <div className="flex flex-col md:flex-row justify-center items-center text-white w-full gap-3 md:gap-10 p-20 h-screen">
-      {remaininTime.hours === "0" ? null : (
+      {remaininTime.hours === "00" ? null : (
         <>
           <div className="flex flex-col items-center justify-around  px-4 md:px-8 py-2 md:py-3 w-[45%]">
             <div
               className={`${
-                remaininTime.hours === "0" ? "text-[30vw]" : "text-[16vw]"
+                remaininTime.hours === "00" ? "  text-[30vw]" : "text-[16vw]"
               } font-bold`}
             >
               {remaininTime.hours}
@@ -41,7 +41,7 @@ const CountdownTimer = ({ CountdownTimestampMs }: any) => {
       <div className="flex flex-col items-center justify-around  px-4 md:px-8 py-2 md:py-3 w-[45%]">
         <div
           className={`${
-            remaininTime.hours === "0" ? "text-[30vw]" : "text-[16vw]"
+            remaininTime.hours === "00" ? "text-[30vw]" : "text-[16vw]"
           } font-bold`}
         >
           {remaininTime.minutes}
@@ -51,7 +51,7 @@ const CountdownTimer = ({ CountdownTimestampMs }: any) => {
       <div className="flex flex-col items-center justify-around  px-4 md:px-8 py-2 md:py-3 w-[45%]">
         <div
           className={`${
-            remaininTime.hours === "0" ? "text-[30vw]" : "text-[16vw]"
+            remaininTime.hours === "00" ? "text-[30vw]" : "text-[16vw]"
           } font-bold`}
         >
           {remaininTime.seconds}
