@@ -1,3 +1,4 @@
+'use client'
 import Timer from "@/components/Timer";
 import React from "react";
 

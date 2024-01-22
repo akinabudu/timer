@@ -1,31 +1,25 @@
-"use client"
+"use client";
 import CountdownTimer from "@/components/CountdonwnTimer";
-import { useAtom } from "jotai";
-import React from "react";
-import { AtomTimer } from "@/app/settings/page";
+import React, { useState, useEffect } from 'react';
+import { GetCookies } from "./Cookies";
 
 export default function Timer() {
-  const[timer,setTimer]=React.useState<Date>()
-  const [timed, setTimed] = useAtom(AtomTimer);
-  const { hrs, min, sec } = timed;
-  console.log(hrs, min, sec);
+  const [timing, setTiming] = useState<any>();
+  const hrs = parseInt(GetCookies("hrs") || "0");
+  const min = parseInt(GetCookies("min") || "0");
+  const sec = parseInt(GetCookies("sec") || "0");
+  const currentTime = new Date();
+  
+  useEffect(() => {
+    
+    setTiming(new Date(
+      currentTime.getTime() + hrs * 60 * 60 * 1000 + min * 60 * 1000 + sec * 1000
+    ));
+  }, [hrs, min, sec]);
 
-  React.useEffect(() => {
-    const updateTimer = () => {
-      const currentTime = new Date();
-      const timing = new Date(
-        currentTime.getTime() + hrs * 60 * 60 * 1000 + min * 60 * 1000 + sec * 1000
-      );
-      setTimer(timing);
-    };
-
-    const interval = setInterval(updateTimer, 1000);
-    return () => clearInterval(interval);
-  },[] );
+  console.log(timing);
 
   return (
-    <div className="flex justify-center items-center w-full h-screen bg-black">
-      <CountdownTimer CountdownTimestampMs={timer} />
-    </div>
+      <CountdownTimer CountdownTimestampMs={timing} />
   );
 }

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 // import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
 import { useRef } from "react";
-import { Provider } from "jotai";
+import { Toaster } from "@/components/ui/sonner";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   // const tawkMessengerRef: any = useRef();
@@ -13,10 +13,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         widgetId={process.env.NEXT_PUBLIC_TAWKTO_WIDGET_ID}
         ref={tawkMessengerRef}
       /> */}
-      <Provider>
-
+      <Toaster />
       {children}
-      </Provider>
     </>
   );
 }

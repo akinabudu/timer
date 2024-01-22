@@ -1,4 +1,3 @@
-'use client'
 import dayjs from "dayjs";
 
 export function getRemainingTimeUntilMsTimestamps (timestampMs:any) {
