@@ -14,6 +14,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         ref={tawkMessengerRef}
       /> */}
       <Toaster />
+
       {children}
     </>
   );

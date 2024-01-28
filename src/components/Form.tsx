@@ -33,7 +33,7 @@ export function SettingsForm() {
       sec: "",
     },
   });
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+   function onSubmit(values: z.infer<typeof formSchema>) {
     RemoveCookies("hrs");
     RemoveCookies("min");
     RemoveCookies("sec");
